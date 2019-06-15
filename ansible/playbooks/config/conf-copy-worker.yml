@@ -1,0 +1,20 @@
+- hosts: worker
+  remote_user: ioi
+  gather_facts: no
+ 
+  tasks:
+
+  - name: Copy cms.conf to server and workers 
+    become: yes
+    become_method: su
+    become_user: root
+    template:
+            src: cms-worker.j2
+            dest: /usr/local/etc/cms.conf
+
+  - name: Restart CMS services
+    shell: "{{ item }}"
+    with_items:
+            - (kill -9 $(ps -ef|grep bin/cms|awk '{print $2}') &) 
+            - (nohup cmsResourceService -a 9 &)
+            - (nohup cmsLogService -c 9 &)
