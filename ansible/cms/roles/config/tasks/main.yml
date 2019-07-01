@@ -1,15 +1,9 @@
-- hosts: server
-  remote_user: sysadmin
-  gather_facts: no
- 
-  tasks:
-
-  - name: Copy cms.conf to server and workers 
+  - name: Copy cms.conf to the destination 
     become: yes
     become_method: su
     become_user: root
-    copy:
-            src: cms-server.conf
+    template:
+            src: cms_{{template}}.j2
             dest: /usr/local/etc/cms.conf
 
   - name: Restart CMS services

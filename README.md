@@ -1,12 +1,35 @@
-# automation
-Scripts to automate the configuration
+# Automation scripts
+Scripts to automate the CMS related maintenance and manage contestant machines.
 
-* To clone CMS from IOI2019 repo and install:
+*Note: secret keys and other important credentials shall be stored in provisioning server. Do not publish it to Git repo.*
 
-<code><ansible-playbook playbooks/init.yml -i worker</code>
+## CMS Related:
 
-* To propogate cms.conf to CMS servers and worker machines:
+### To clone CMS from IOI2019 repo and install:
 
-<code>ansible-playbook playbooks/config/conf-copy-server.yml -i server</code>
+- to worker machines:
+<code>ansible-playbook install_cms_worker.yml -i workers_*stage*</code>
+- to server machines:
+<code>ansible-playbook install_cms_worker.yml -i servers_*stage*</code>
 
-<code>ansible-playbook playbooks/config/conf-copy-worker.yml -i worker</code>
+*Keep different inventories for development, testing and production(hosts_dev, hosts_test and hosts_prd, correspondingly).*
+
+### To provision the updated cms.conf
+
+- to worker machines:
+<code>ansible-playbook provision_worker_config.yml -i workers_*stage*</code>
+
+- to server machines:
+<code>ansible-playbook provision_server_config.yml -i servers_*stage*</code>
+
+## Administration scripts
+
+- Unlock and lock during the contests
+--
+
+- Enable/distable USB
+--
+
+- General : run any bash script on a host 
+--
+
