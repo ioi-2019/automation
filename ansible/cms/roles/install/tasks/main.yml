@@ -1,0 +1,37 @@
+- name: Download CMS from GitHub
+  git:
+          repo: https://github.com/ioi-2019/cms.git
+          version: master
+          dest: /home/{{ansible_user}}/cms
+          accept_hostkey: yes
+          recursive: yes
+  register: git_checkout
+
+- name: Install necessary packages
+  apt:
+          name: "{{ packages }}"
+  vars:
+          packages:
+          - openjdk-8-jdk-headless
+          - postgresql-client
+          - python3.6
+          - python3.6-dev
+          - libpq-dev
+          - libcups2-dev
+          - libyaml-dev
+          - libffi-dev
+          - python3-pip
+          - cgroup-lite
+          - libcap-dev
+          - zip
+
+- name: Build CMS
+  command: "{{ item }}"
+  with_items:
+          - sudo pip3 install -r requirements.txt
+          - sudo python3 setup.py install
+  args:
+          chdir: /home/{{ansible_user}}/cms/
+  when: git_checkout.changed
+
+

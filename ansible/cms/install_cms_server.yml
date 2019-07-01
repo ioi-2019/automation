@@ -1,0 +1,9 @@
+# This playbook installs CMS in server machines (DB is excluded)
+
+- hosts: servers
+  remote_user: sysadmin
+  gather_facts: no
+
+  roles:
+          - install
+

@@ -1,0 +1,14 @@
+# Write cms.conf to all workers
+
+- hosts: workers
+  remote_user: ioi
+  gather_facts: no
+
+  vars:
+          template: workers
+
+  vars_files:
+          - /home/sysadmin/ansible-vars/cms
+          - /home/sysadmin/ansible-vars/db
+  roles:
+          - config

@@ -14,7 +14,7 @@ Scripts to automate the CMS related maintenance and manage contestant machines.
 
 *Keep different inventories for development, testing and production(hosts_dev, hosts_test and hosts_prd, correspondingly).*
 
-### TO provision the updated cms.conf
+### To provision the updated cms.conf
 
 - to worker machines:
 <code>ansible-playbook provision_worker_config.yml -i workers_*stage*</code>
