@@ -56,7 +56,7 @@
     "_section": "Database",
 
     "_help": "Connection string for the database.",
-    "database": "postgresql+psycopg2://cmsuser:c13m3sd1b1@192.168.25.242:5432/cmsdb",
+    "database": "postgresql+psycopg2://{{cmsdb_user}}:{{cmsdb_psw}}@{{cmsdb_host}}:{{cmsdb_port}}/{{cmsdb_name}}",
 
     "_help": "Whether SQLAlchemy prints DB queries on stdout.",
     "database_debug": false,
@@ -92,7 +92,7 @@
     "_help": "for other than testing. It must be a 16 bytes long",
     "_help": "hexadecimal number. You can easily create a key calling:",
     "_help": "python -c 'from cmscommon import crypto; print(crypto.get_hex_random_key())'",
-    "secret_key":             "e2045a51e4b102ea802106f92841a1fb",
+    "secret_key": "{{cms_secret_key}}",
 
     "_help": "Whether Tornado prints debug information on stdout.",
     "tornado_debug": false,
@@ -156,7 +156,7 @@
     "_help": "load balancing proxy (if any), just the backends. If any",
     "_help": "of them uses HTTPS specify a file with the certificates",
     "_help": "you trust.",
-    "rankings": ["http://sc0r1ng:an0th3r0n3@192.168.25.243:8890/"],
+    "rankings": ["http://{{ranking_user}}:{{ranking_psw}}@192.168.25.243:8890/"],
     "https_certfile": null,
 
 
