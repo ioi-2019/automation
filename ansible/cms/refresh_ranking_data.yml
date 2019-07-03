@@ -1,0 +1,8 @@
+# Copy images and logo to ranking servers
+
+- hosts: ranking
+  remote_user: sysadmin
+  gather_facts: no
+
+  roles:
+          - ranking
