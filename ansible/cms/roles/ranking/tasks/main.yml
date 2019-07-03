@@ -1,0 +1,11 @@
+- name: copy images to the ranking servers
+  copy:
+          src: {{ item }}
+          dest: /var/local/lib/cms/ranking/
+          with_items:
+                  - files/logo.png
+                  - files/flags/*
+                  - files/faces/*
+          notify: restart ranking
+
+          

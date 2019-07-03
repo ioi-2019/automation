@@ -22,6 +22,11 @@ Scripts to automate the CMS related maintenance and manage contestant machines.
 - to server machines:
 <code>ansible-playbook provision_server_config.yml -i servers_*stage*</code>
 
+### Ranking server
+
+to cleanup and updating new images:
+<code>ansible-playbook ?.yml -i ranking_*stage*</code>
+
 ## Administration scripts
 
 - Unlock and lock during the contests
