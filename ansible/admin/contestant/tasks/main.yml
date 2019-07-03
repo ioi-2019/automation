@@ -1,3 +1,3 @@
-- name: shutdown contestant machines
+- name: reboot contestant machines
   reboot:
-    msg: "Shutdown is initiated by HTC team."
+    msg: "Reboot is initiated by HTC team."
