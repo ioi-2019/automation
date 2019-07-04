@@ -1,0 +1,8 @@
+# Reboot contestant laptops
+
+- hosts: contestants
+  remote_user: sysadmin
+  gather_facts: no
+
+  roles:
+          - contestant
