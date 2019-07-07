@@ -8,6 +8,9 @@
   register: git_checkout
 
 - name: Install necessary packages
+  become: yes
+  become_method: su
+  become_user: root
   apt:
           name: "{{ packages }}"
   vars:
