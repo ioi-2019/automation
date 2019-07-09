@@ -19,8 +19,12 @@
 
     "core_services":
     {
-        "LogService":        [["192.168.25.240", 29000]],
-        "ResourceService":   [["192.168.25.240", 28000]],
+        "LogService":        [["192.168.25.240", 29000],
+                              ["192.168.25.242", 29000],
+                              ["192.168.25.246", 29000]],
+        "ResourceService":   [["192.168.25.240", 28000],
+                              ["192.168.25.242", 28000],
+                              ["192.168.25.246", 28000]],
         "ScoringService":    [["192.168.25.240", 28500]],
         "Checker":           [["192.168.25.240", 22000]],
         "EvaluationService": [["192.168.25.240", 25000]],
@@ -50,7 +54,9 @@
                               ["172.26.0.5", 26001],
                               ["172.26.0.5", 26002],
                               ["172.26.0.5", 26003]],
-        "ContestWebServer":  [["192.168.25.240", 21000]],
+        "ContestWebServer":  [["192.168.25.240", 21000],
+                              ["192.168.25.242", 21000],
+                              ["192.168.25.246", 21000]],
         "AdminWebServer":    [["192.168.25.240", 21100]],
         "ProxyService":      [["192.168.25.240", 28600]],
         "PrintingService":   [["192.168.25.240", 25123]]
@@ -115,8 +121,8 @@
     "_help": "in core_services. If you access them through a proxy (acting",
     "_help": "as a load balancer) running on the same host you could put",
     "_help": "127.0.0.1 here for additional security.",
-    "contest_listen_address": [""],
-    "contest_listen_port":    [8888],
+    "contest_listen_address": ["192.168.25.240","192.168.25.242","192.168.25.246"],
+    "contest_listen_port":    [8888,8888,8888],
 
     "_help": "Login cookie duration in seconds. The duration is refreshed",
     "_help": "on every manual request.",
