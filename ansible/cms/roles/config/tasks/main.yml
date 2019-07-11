@@ -6,9 +6,14 @@
             src: cms_{{template}}.j2
             dest: /usr/local/etc/cms.conf
 
+  - name: Kill CMS services
+    shell: ps -ef | grep bin/cms | awk '{print $2}' | xargs kill -9
+    ignore_errors: true
+    async: 3
+    notify: Restart CMS services
+
   - name: Restart CMS services
     shell: "{{ item }}"
     with_items:
-            - (kill -9 $(ps -ef|grep bin/cms|awk '{print $2}') &) 
-            - (nohup cmsResourceService -a {{contestId}} &)
-            - (nohup cmsLogService -c {{contestId}} &)
+            - (cmsResourceService -a {{contestId}} &)
+            - (cmsLogService -c {{contestId}} &)

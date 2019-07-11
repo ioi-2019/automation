@@ -3,8 +3,14 @@
 192.168.25.242
 192.168.25.246
 
-[workers]
-#192.168.25.241
+[workers:children]
+virtual_w
+laptop_w
+
+[virtual_w]
+192.168.25.241
+
+[laptop_w]
 172.26.0.[2:5]
 
 [ranking]

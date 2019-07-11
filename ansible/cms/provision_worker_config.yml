@@ -1,7 +1,8 @@
 # Write cms.conf to all workers
 
-- hosts: workers
-  remote_user: ioi
+- hosts: virtual_w
+  remote_user: sysadmin
+  strategy: free
   gather_facts: no
 
   vars:

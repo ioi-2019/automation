@@ -2,6 +2,7 @@
 
 - hosts: servers
   remote_user: sysadmin
+  strategy: free
   gather_facts: no
 
   vars:

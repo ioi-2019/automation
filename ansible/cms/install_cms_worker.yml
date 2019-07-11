@@ -1,7 +1,7 @@
 # This playbook installs CMS in worker machines
 
 - hosts: workers
-  remote_user: ioi
+  remote_user: sysadmin
   gather_facts: no
 
   roles:
