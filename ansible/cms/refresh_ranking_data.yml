@@ -1,4 +1,4 @@
-# Copy images and logo to ranking servers
+#Copy images and logo to ranking servers
 
 - hosts: ranking
   remote_user: sysadmin

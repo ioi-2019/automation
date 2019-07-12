@@ -10,10 +10,10 @@
     shell: ps -ef | grep bin/cms | awk '{print $2}' | xargs kill -9
     ignore_errors: true
     async: 3
-    notify: Restart CMS services
 
   - name: Restart CMS services
     shell: "{{ item }}"
+    async: 10
     with_items:
             - (cmsResourceService -a {{contestId}} &)
             - (cmsLogService -c {{contestId}} &)

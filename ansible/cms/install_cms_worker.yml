@@ -1,6 +1,6 @@
 # This playbook installs CMS in worker machines
 
-- hosts: workers
+- hosts: virtual_w
   remote_user: sysadmin
   gather_facts: no
 

@@ -1,3 +1,11 @@
+- name: Copy cms.ranking.conf to the destination 
+  become: yes
+  become_method: su
+  become_user: root
+  template:
+          src: conf.j2
+          dest: /usr/local/etc/cms.ranking.conf
+
 - name: copy images to the ranking servers
   copy:
           src: {{ item }}
