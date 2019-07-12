@@ -4,5 +4,7 @@
   remote_user: sysadmin
   gather_facts: no
 
+  vars_files:
+          - ~/ansible-vars/cms  
   roles:
           - ranking

@@ -8,12 +8,12 @@
 
 - name: copy images to the ranking servers
   copy:
-          src: {{ item }}
+          src: "{{ item }}"
           dest: /var/local/lib/cms/ranking/
-          with_items:
-                  - files/logo.png
-                  - files/flags/*
-                  - files/faces/*
-          notify: restart ranking
+  with_items:
+          - logo.png
+          - flags
+            #- faces/*.jpg
+  notify: restart ranking
 
           
