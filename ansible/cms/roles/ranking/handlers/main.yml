@@ -1,5 +1,0 @@
-- name: restart ranking
-  shell: "{{ item }}"
-  with_items:
-          - (ps -ef|grep cmsRankingWebServer|awk '{print $2}'|xargs kill -9) 
-          - (nohup cmsRankingWebServer &)

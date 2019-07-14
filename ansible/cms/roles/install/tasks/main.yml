@@ -22,7 +22,7 @@
 - name: Download CMS from GitHub
   git:
           repo: https://github.com/ioi-2019/cms-ioi2019.git
-          version: master
+          version: ranking
           dest: /home/{{ansible_user}}/cms
           accept_hostkey: yes
           recursive: yes

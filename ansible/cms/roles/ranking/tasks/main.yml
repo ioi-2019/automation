@@ -13,7 +13,9 @@
   with_items:
           - logo.png
           - flags
-            #- faces/*.jpg
-  notify: restart ranking
+          - faces
 
-          
+- name: restart ranking
+  service:
+          name: cmsRanking
+          state: restarted
