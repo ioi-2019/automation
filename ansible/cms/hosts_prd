@@ -1,0 +1,13 @@
+[servers:children]
+aws
+cws
+
+[aws]
+172.30.20.220
+
+[cws]
+172.30.20.20[1:9]
+
+[workers:children]
+172.30.30.[0:59]
+

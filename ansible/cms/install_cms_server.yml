@@ -1,6 +1,6 @@
 # This playbook installs CMS in server machines (DB is excluded)
 
-- hosts: ranking #servers
+- hosts: 192.168.25.241 #ranking #servers
   remote_user: sysadmin
   gather_facts: no
 

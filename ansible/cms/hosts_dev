@@ -13,5 +13,8 @@ laptop_w
 [laptop_w]
 172.26.0.[2:5]
 
+[testworker]
+172.30.20.118
+
 [ranking]
 192.168.25.246
