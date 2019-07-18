@@ -6,6 +6,7 @@
           name: "{{ packages }}"
   vars:
           packages:
+          - git
           - openjdk-8-jdk-headless
           - postgresql-client
           - python3.6
@@ -22,7 +23,7 @@
 - name: Download CMS from GitHub
   git:
           repo: https://github.com/ioi-2019/cms-ioi2019.git
-          version: ranking
+          version: master
           dest: /home/{{ansible_user}}/cms
           accept_hostkey: yes
           recursive: yes
