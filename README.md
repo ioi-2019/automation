@@ -38,3 +38,6 @@ to cleanup and updating new images:
 - General : run any bash script on a host 
 --
 
+- To add a contestant user to contestant machines with contestant_manage playbook: 
+      <code> ansible-playbook site.yml –extra-vars “username=contestant password=whatever admin=no action=create_user” </code>
+
