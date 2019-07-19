@@ -19,9 +19,11 @@
 
     "core_services":
     {
-        "LogService":        [{% for host in groups['servers'] %}["{{hostvars[host].inventory_hostname}}", 29000]{% if not loop.last %},
+        "LogService":        [{% for host in groups['servers'] %}["{{hostvars[host].inventory_hostname}}", 29000],{% endfor %}
+                              {% for host in groups['workers'] %}["{{hostvars[host].inventory_hostname}}", 29000]{% if not loop.last %},
                               {% endif %}{% endfor  %}],
-        "ResourceService":   [{% for host in groups['servers'] %}["{{hostvars[host].inventory_hostname}}", 28000]{% if not loop.last %},
+        "ResourceService":   [{% for host in groups['servers'] %}["{{hostvars[host].inventory_hostname}}", 28000],{% endfor %}
+                              {% for host in groups['workers'] %}["{{hostvars[host].inventory_hostname}}", 28000]{% if not loop.last %},
                               {% endif %}{% endfor  %}],
         "ScoringService":    [["172.30.20.220", 28500]],
         "Checker":           [["172.30.20.220", 22000]],
@@ -31,7 +33,7 @@
         "ContestWebServer":  [{% for host in groups['cws'] %}["{{hostvars[host].inventory_hostname}}", 21000]{% if not loop.last %},
                               {% endif %}{% endfor  %}],
         "AdminWebServer":    [["172.30.20.220", 21100]],
-        "ProxyService":      [["172.30.20.220", 28600]],
+        "ProxyService":      [["172.30.20.221", 28600]],
         "PrintingService":   [["172.30.20.220", 25123]]
         },
 
