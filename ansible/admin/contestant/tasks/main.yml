@@ -1,3 +1,0 @@
-- name: reboot contestant machines
-  reboot:
-    msg: "Reboot is initiated by HTC team."

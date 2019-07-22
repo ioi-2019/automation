@@ -1,7 +1,7 @@
 # Reboot contestant laptops
 
 - hosts: contestants
-  remote_user: sysadmin
+  remote_user: ansible
   gather_facts: no
 
   roles:
