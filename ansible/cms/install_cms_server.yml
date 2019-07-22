@@ -1,7 +1,7 @@
 # This playbook installs CMS in server machines (DB is excluded)
 
-- hosts: 192.168.25.241 #ranking #servers
-  remote_user: sysadmin
+- hosts: servers
+  remote_user: ansible
   gather_facts: no
 
   roles:

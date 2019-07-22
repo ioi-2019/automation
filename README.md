@@ -14,6 +14,8 @@ Scripts to automate the CMS related maintenance and manage contestant machines.
 
 *Keep different inventories for development, testing and production(hosts_dev, hosts_test and hosts_prd, correspondingly).*
 
+*This playbook first updates and installs necessary packages. To skip this process for the next runs, use **--skip-tags "apt,packages"** *
+
 ### To provision the updated cms.conf
 
 - to worker machines:

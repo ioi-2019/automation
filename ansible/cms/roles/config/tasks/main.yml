@@ -8,12 +8,14 @@
 
   - name: Kill CMS services
     shell: ps -ef | grep bin/cms | awk '{print $2}' | xargs kill -9
+    tags: kill
     ignore_errors: true
     async: 3
 
   - name: Restart CMS services
     shell: "{{ item }}"
-    async: 10
+    tags: start
+    async: 3
     with_items:
             - (cmsResourceService -a {{contestId}} &)
             - (cmsLogService -c {{contestId}} &)

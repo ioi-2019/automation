@@ -1,3 +1,15 @@
+- name: Update and upgrade apt packages
+  become: yes
+  become_method: su
+  become_user: root
+  ignore_errors: yes
+  async: 3
+  apt:
+    upgrade: yes
+    update_cache: yes
+    cache_valid_time: 86400 # Ten days (in seconds)
+  tags: apt
+
 - name: Install necessary packages
   become: yes
   become_method: su
@@ -19,6 +31,7 @@
           - cgroup-lite
           - libcap-dev
           - zip
+  tags: packages
 
 - name: Download CMS from GitHub
   git:
@@ -26,16 +39,20 @@
           version: master
           dest: /home/{{ansible_user}}/cms
           accept_hostkey: yes
+          force: yes
           recursive: yes
   register: git_checkout
 
 - name: Build CMS
   command: "{{ item }}"
   with_items:
+          - sudo python3 prerequisites.py -y install
+          - sudo usermod -a -G cmsuser ansible
           - sudo pip3 install -r requirements.txt
           - sudo python3 setup.py install
   args:
           chdir: /home/{{ ansible_user }}/cms/
   when: git_checkout.changed
+  tags: build
 
 

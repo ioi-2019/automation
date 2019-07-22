@@ -1,6 +1,6 @@
 # Write cms.conf to all CMS servers
 
-- hosts: testworker
+- hosts: servers
   remote_user: ansible
   strategy: free
   gather_facts: no
