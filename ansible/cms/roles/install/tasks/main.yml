@@ -22,11 +22,12 @@
 - name: Download CMS from GitHub
   git:
           repo: https://github.com/ioi-2019/cms-ioi2019.git
-          version: ranking
+          version: communication
           dest: /home/{{ansible_user}}/cms
           accept_hostkey: yes
           recursive: yes
   register: git_checkout
+  tags: install
 
 - name: Build CMS
   command: "{{ item }}"
@@ -36,5 +37,6 @@
   args:
           chdir: /home/{{ ansible_user }}/cms/
   when: git_checkout.changed
+  tags: build
 
 
