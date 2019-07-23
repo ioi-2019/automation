@@ -1,7 +1,7 @@
 # This playbook installs CMS in worker machines
 
-- hosts: virtual_w
-  remote_user: sysadmin
+- hosts: testworker
+  remote_user: ansible
   gather_facts: no
 
   roles:
