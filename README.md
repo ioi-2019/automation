@@ -43,3 +43,6 @@ to cleanup and updating new images:
       
 - To add SSH keys of contestans to a server:
       <code> ansible-playbook -i inventory authorized_key.yml -u "$USER" -k <code>
+      
+ - To distribute key pair over contestant machines
+      <code> ansible-playbook key_distribution.yml -i hosts_*stage* <code>
