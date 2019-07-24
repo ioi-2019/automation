@@ -1,0 +1,6 @@
+- hosts: all
+  remote_user: contestant
+  tasks:
+  - name: Adding printer to contestant machines
+    command: lpadmin -p ioi_printer -E -v ipp://172.30.20.200:631/printers/ioi_printer -m everywhere
+
