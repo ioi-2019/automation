@@ -1,0 +1,7 @@
+- hosts: contestants
+  remote_user: ansible
+  tasks:
+  - name: Ansible copy file to remote server
+    copy:
+      src: ~/my_key_pair
+      dest: /home/ansible/
