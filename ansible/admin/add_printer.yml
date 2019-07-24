@@ -1,5 +1,5 @@
 - hosts: contestants
-  remote_user: contestant
+  remote_user: ansible
   tasks:
   - name: Adding printer to contestant machines
     command: lpadmin -p ioi_printer -E -v ipp://172.30.20.200:631/printers/ioi_printer -m everywhere
