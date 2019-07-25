@@ -1,0 +1,5 @@
+[Unit]
+Description=CMS Ranking system
+ 
+[Service]
+ExecStart=/usr/local/bin/cmsRankingWebServer

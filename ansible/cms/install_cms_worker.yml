@@ -1,6 +1,6 @@
 # This playbook installs CMS in worker machines
 
-- hosts: testworker
+- hosts: 172.26.0.2, 172.26.0.5
   remote_user: ansible
   gather_facts: no
 

@@ -1,0 +1,6 @@
+[Unit]
+Description=cmsLogService
+ 
+[Service]
+Environment="SCRIPT_ARGS=-c %i"
+ExecStart=/usr/local/bin/cmsLogService $SCRIPT_ARGS
