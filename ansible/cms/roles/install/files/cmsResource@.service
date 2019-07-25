@@ -1,0 +1,6 @@
+[Unit]
+Description=cmsResourceService
+ 
+[Service]
+Environment="SCRIPT_ARGS=-a %i"
+ExecStart=/usr/local/bin/cmsResourceService $SCRIPT_ARGS
