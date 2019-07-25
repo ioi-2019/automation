@@ -39,7 +39,10 @@ to cleanup and updating new images:
 --
 
 - To add a contestant user to contestant machines with contestant_manage playbook: 
-      <code> ansible-playbook site.yml –extra-vars “username=contestant password=whatever admin=no action=create_user” </code>
+      <code> ansible-playbook add_user.yml –extra-vars “username=contestant password=whatever admin=no action=create_user” </code>
       
 - To add SSH keys of contestans to a server:
-      <code> ansible-playbook -i inventory authorized_key.yml -u "$USER" -k <code>
+      <code> ansible-playbook -i inventory authorized_key.yml -u "$USER" -k </code>
+ 
+ - To distribute key pair over contestant machines
+      <code> ansible-playbook key_distribution.yml -i hosts_*stage* </code>
