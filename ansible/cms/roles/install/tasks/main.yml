@@ -55,4 +55,15 @@
   when: git_checkout.changed
   tags: build
 
-
+- name: Create systemd services
+  become: yes
+  become_method: su
+  become_user: root
+  copy:
+          src: "{{ item }}"
+          dest: /etc/systemd/system/
+  with_items:
+          - cmsResource@.service
+          - cmsLog@.service
+          - cmsRanking.service
+  tags: services
