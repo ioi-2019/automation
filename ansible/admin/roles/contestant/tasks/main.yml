@@ -11,4 +11,24 @@
   become_method: su
   become_user: root
   script: scripts/open_browser.sh
-  tags: browser 
+  tags: browser
+
+- name: Lock contestant screen
+  become: yes
+  become_method: su
+  become_user: root
+  systemd: 
+        name: i3lock
+        state: started
+  tags: lock
+
+- name: Unlock contestant screen
+  become: yes
+  become_method: su
+  become_user: root
+  systemd: 
+        name: i3lock
+        state: stopped
+  tags: unlock
+
+ 
