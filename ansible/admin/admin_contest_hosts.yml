@@ -3,8 +3,8 @@
 - hosts: contestants
   remote_user: ansible
   gather_facts: no
+  strategy: free
+  #debugger: always
 
   roles:
           - contestant
-  tags:
-	  - browser  
