@@ -1,0 +1,3 @@
+- name: Start a browser with seat page
+  script: scripts/open_browser.sh
+  tags: browser 
