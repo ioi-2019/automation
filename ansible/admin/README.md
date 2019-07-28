@@ -1,12 +1,15 @@
 **_admin_contest_hosts_** playbook allows to: 
 
 Restart contestant machines by calling:
+
 <code>ansible-playbook admin_contest_hosts --tags "reboot" -i hosts_stage</code>
 
 Open a browser with necessary website:
+
 <code>ansible-playbook admin_contest_hosts --tags "browser" -i hosts_stage</code>
 
 Lock/unlock a contestant laptop using i3lock service:
+
 <code>ansible-playbook admin_contest_hosts --tags "lock"(unlock) -i hosts_stage</code>
 
 
