@@ -1,16 +1,24 @@
 **_admin_contest_hosts_** playbook allows to: 
 
-Restart contestant machines by calling:
+* Restart contestant machines by calling:
 
 <code>ansible-playbook admin_contest_hosts --tags "reboot" -i hosts_stage</code>
 
-Open a browser with necessary website:
+* Shutdown contestant machines by calling:
+
+<code>ansible-playbook admin_contest_hosts --tags "shutdown" -i hosts_stage</code>
+
+* Lock contestant laptops using i3lock service:
+
+<code>ansible-playbook admin_contest_hosts --tags "lock"(unlock) -i hosts_stage</code>
+
+* Open a browser with pre-defined page:
 
 <code>ansible-playbook admin_contest_hosts --tags "browser" -i hosts_stage</code>
 
-Lock/unlock a contestant laptop using i3lock service:
+* Run a script located in roles/contestant/scripts/script.sh
 
-<code>ansible-playbook admin_contest_hosts --tags "lock"(unlock) -i hosts_stage</code>
+<code>ansible-playbook admin_contest_hosts --tags "script" -i hosts_stage</code>
 
 
 _Note: Ensure that in ansible.cfg file "host_key_checking = False" is uncommented. Otherwise, you'll be asked to confirm all contestant hosts' SSH fingerprints._

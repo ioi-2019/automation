@@ -1,10 +1,17 @@
-- name: Restart services
+- name: Shutdown hosts
+  become: yes
+  become_method: su
+  become_user: root
+  command: /sbin/shutdown -h now
+  tags: shutdown
+
+- name: Restart hosts
   become: yes
   become_method: su
   become_user: root
   reboot:
           reboot_timeout: 1
-  tags: reboot
+  tags: reboot, restart
 
 - name: Start a browser with seat page
   become: yes
@@ -12,6 +19,13 @@
   become_user: root
   script: scripts/open_browser.sh
   tags: browser
+
+- name: Running a script.sh on remove hosts
+  become: yes
+  become_method: su
+  become_user: root
+  script: scripts/script.sh
+  tags: script
 
 - name: Lock contestant screen
   become: yes
