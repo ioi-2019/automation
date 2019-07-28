@@ -6,16 +6,14 @@
             src: cms_{{template}}.j2
             dest: /usr/local/etc/cms.conf
 
-  - name: Kill CMS services
-    shell: ps -ef | grep bin/cms | awk '{print $2}' | xargs kill -9
-    tags: kill
-    ignore_errors: true
-    async: 3
-
-  - name: Restart CMS services
-    shell: "{{ item }}"
-    tags: start
-    async: 3
+  - name: Restart CMS Services
+    become: yes
+    become_method: su
+    become_user: root
+    systemd: 
+      name: "{{item}}" 
+      state: restarted
     with_items:
-            - (cmsResourceService -a {{contestId}} &)
-            - (cmsLogService -c {{contestId}} &)
+            - 'cmsResource@{{contestId}}'
+            - 'cmsLog@{{contestId}}'
+

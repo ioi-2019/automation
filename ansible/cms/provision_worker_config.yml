@@ -1,7 +1,7 @@
 # Write cms.conf to all workers
 
-- hosts: virtual_w
-  remote_user: sysadmin
+- hosts: 172.26.0.2, 172.26.0.5
+  remote_user: ansible
   strategy: free
   gather_facts: no
 
