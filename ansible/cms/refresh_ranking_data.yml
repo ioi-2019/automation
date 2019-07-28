@@ -1,7 +1,7 @@
 #Copy images and logo to ranking servers
 
 - hosts: ranking
-  remote_user: sysadmin
+  remote_user: ansible
   gather_facts: no
 
   vars_files:

@@ -1,0 +1,34 @@
+- name: Restart services
+  become: yes
+  become_method: su
+  become_user: root
+  reboot:
+          reboot_timeout: 1
+  tags: reboot
+
+- name: Start a browser with seat page
+  become: yes
+  become_method: su
+  become_user: root
+  script: scripts/open_browser.sh
+  tags: browser
+
+- name: Lock contestant screen
+  become: yes
+  become_method: su
+  become_user: root
+  systemd: 
+        name: i3lock
+        state: started
+  tags: lock
+
+- name: Unlock contestant screen
+  become: yes
+  become_method: su
+  become_user: root
+  systemd: 
+        name: i3lock
+        state: stopped
+  tags: unlock
+
+ 

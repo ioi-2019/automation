@@ -21,23 +21,19 @@
     {
         "LogService":        [["{{ ansible_host }}", 29000]],
         "ResourceService":   [["{{ ansible_host }}", 28000]],
-        "ScoringService":    [["192.168.25.240", 28500]],
-        "Checker":           [["192.168.25.240", 22000]],
-        "EvaluationService": [["192.168.25.240", 25000]],
-        "Worker":            [["{{ ansible_host }}", 26000],
-                              ["{{ ansible_host }}", 26001],
-                              ["{{ ansible_host }}", 26002],
-                              ["{{ ansible_host }}", 26003],
-                              ["{{ ansible_host }}", 26004]],
-        "ContestWebServer":  [["192.168.25.240", 21000]],
-        "AdminWebServer":    [["192.168.25.240", 21100]],
-        "ProxyService":      [["192.168.25.240", 28600]],
-        "PrintingService":   [["192.168.25.240", 25123]]
+        "ScoringService":    [["172.30.20.220", 28500]],
+        "Checker":           [["172.30.20.220", 22000]],
+        "EvaluationService": [["172.30.20.220", 25000]],
+        "Worker":            [["{{ ansible_host }}", 26000]],
+        "ContestWebServer":  [["172.30.20.101", 21000]],
+        "AdminWebServer":    [["172.30.20.220", 21100]],
+        "ProxyService":      [["172.30.20.220", 28600]],
+        "PrintingService":   [["172.30.20.220", 25123]]
         },
 
     "other_services":
     {
-        "TestFileCacher":    [["192.168.25.240", 27501]]
+        "TestFileCacher":    [["172.30.20.220", 27501]]
         },
 
 
@@ -145,7 +141,7 @@
     "_help": "load balancing proxy (if any), just the backends. If any",
     "_help": "of them uses HTTPS specify a file with the certificates",
     "_help": "you trust.",
-    "rankings": ["http://{{ranking_user}}:{{ranking_psw}}@192.168.25.243:8890/"],
+    "rankings": ["http://{{ranking_user}}:{{ranking_psw}}@:8890/"],
     "https_certfile": null,
 
     "_section": "PrintingService",

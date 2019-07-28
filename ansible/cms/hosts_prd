@@ -1,6 +1,7 @@
 [servers:children]
 aws
 cws
+proxy
 
 [aws]
 172.30.20.220
@@ -8,6 +9,15 @@ cws
 [cws]
 172.30.20.20[1:9]
 
-[workers:children]
+[proxy]
+172.30.20.221
+
+[workers]
 172.30.30.[0:59]
+
+[ranking]
+172.30.20.221
+
+[testworker]
+172.30.20.118
 

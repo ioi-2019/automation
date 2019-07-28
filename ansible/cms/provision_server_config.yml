@@ -1,7 +1,7 @@
 # Write cms.conf to all CMS servers
 
 - hosts: servers
-  remote_user: sysadmin
+  remote_user: ansible
   strategy: free
   gather_facts: no
 
@@ -9,7 +9,7 @@
           template: servers
 
   vars_files:
-          - /home/sysadmin/ansible-vars/cms
-          - /home/sysadmin/ansible-vars/db
+          - /home/ioiauto/ansible-vars/cms
+          - /home/ioiauto/ansible-vars/db
   roles:
           - config

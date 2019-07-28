@@ -19,41 +19,27 @@
 
     "core_services":
     {
-        "LogService":        [["192.168.25.240", 29000],
-                              ["192.168.25.242", 29000],
-                              ["192.168.25.246", 29000],
-                              ["172.26.0.2", 29000],
-                              ["172.26.0.3", 29000],
-                              ["172.26.0.4", 29000],
-                              ["172.26.0.5", 29000]],
-        "ResourceService":   [["192.168.25.240", 28000],
-                              ["192.168.25.242", 28000],
-                              ["192.168.25.246", 28000],
-                              ["172.26.0.2", 28000],
-                              ["172.26.0.3", 28000],
-                              ["172.26.0.4", 28000],
-                              ["172.26.0.5", 28000]],
-        "ScoringService":    [["192.168.25.240", 28500]],
-        "Checker":           [["192.168.25.240", 22000]],
-        "EvaluationService": [["192.168.25.240", 25000]],
-        "Worker":            [{% for host in groups['workers'] %} 
-				["{{hostvars[host].inventory_hostname}}", 26000],
-				["{{hostvars[host].inventory_hostname}}", 26001],
-				["{{hostvars[host].inventory_hostname}}", 26002],
-				["{{hostvars[host].inventory_hostname}}", 26003],
-				["{{hostvars[host].inventory_hostname}}", 26004]{% if not loop.last %},{% endif %}
-			      {% endfor  %}],
-        "ContestWebServer":  [["192.168.25.240", 21000],
-                              ["192.168.25.242", 21000],
-                              ["192.168.25.246", 21000]],
-        "AdminWebServer":    [["192.168.25.240", 21100]],
-        "ProxyService":      [["192.168.25.240", 28600]],
-        "PrintingService":   [["192.168.25.240", 25123]]
-        },
+        "LogService":        [{% for host in groups['servers'] %}["{{hostvars[host].inventory_hostname}}", 29000],
+                              {% endfor %}{% for host in groups['workers'] %}["{{hostvars[host].inventory_hostname}}", 29000]{% if not loop.last %},
+                              {% endif %}{% endfor  %}],
+        "ResourceService":   [{% for host in groups['servers'] %}["{{hostvars[host].inventory_hostname}}", 28000],
+                              {% endfor %}{% for host in groups['workers'] %}["{{hostvars[host].inventory_hostname}}", 28000]{% if not loop.last %},
+                              {% endif %}{% endfor  %}],
+        "ScoringService":    [["172.30.20.220", 28500]],
+        "Checker":           [["172.30.20.220", 22000]],
+        "EvaluationService": [["172.30.20.220", 25000]],
+        "Worker":            [{% for host in groups['workers'] %} ["{{hostvars[host].inventory_hostname}}", 26000]{% if not loop.last %},
+                              {% endif %}{% endfor  %}],
+        "ContestWebServer":  [{% for host in groups['cws'] %}["{{hostvars[host].inventory_hostname}}", 21000]{% if not loop.last %},
+                              {% endif %}{% endfor  %}],
+        "AdminWebServer":    [["172.30.20.220", 21100]],
+        "ProxyService":      [["172.30.20.221", 28600]],
+        "PrintingService":   [["172.30.20.220", 25123]]
+    },
 
     "other_services":
     {
-        "TestFileCacher":    [["192.168.25.240", 27501]]
+        "TestFileCacher":    [["172.30.20.220", 27501]]
         },
 
 
@@ -110,8 +96,8 @@
     "_help": "in core_services. If you access them through a proxy (acting",
     "_help": "as a load balancer) running on the same host you could put",
     "_help": "127.0.0.1 here for additional security.",
-    "contest_listen_address": ["192.168.25.240","192.168.25.242","192.168.25.246"],
-    "contest_listen_port":    [8888,8888,8888],
+    "contest_listen_address": [{% for host in groups['cws'] %}"{{hostvars[host].inventory_hostname}}"{% if not loop.last %},{% endif %}{% endfor  %}],
+    "contest_listen_port":    [{% for host in groups['cws'] %}8888{% if not loop.last %},{% endif %}{% endfor  %}],
 
     "_help": "Login cookie duration in seconds. The duration is refreshed",
     "_help": "on every manual request.",
@@ -161,7 +147,8 @@
     "_help": "load balancing proxy (if any), just the backends. If any",
     "_help": "of them uses HTTPS specify a file with the certificates",
     "_help": "you trust.",
-    "rankings": ["http://{{ranking_user}}:{{ranking_psw}}@192.168.25.246:8890/"],
+    {% for host in groups['ranking'] %}"rankings": ["http://{{ranking_user}}:{{ranking_psw}}@{{hostvars[host].inventory_hostname}}:8890/"],
+     {% endfor %}
     "https_certfile": null,
 
 

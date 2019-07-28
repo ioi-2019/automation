@@ -12,10 +12,13 @@
           dest: /var/local/lib/cms/ranking/
   with_items:
           - logo.png
-          - flags
-          - faces
+          #- flags
+          #- faces
 
 - name: restart ranking
+  become: yes
+  become_method: su
+  become_user: root
   service:
           name: cmsRanking
           state: restarted

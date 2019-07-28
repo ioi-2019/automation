@@ -12,7 +12,9 @@ Scripts to automate the CMS related maintenance and manage contestant machines.
 - to server machines:
 <code>ansible-playbook install_cms_server.yml -i hosts_*stage*</code>
 
-*Keep different inventories for development, testing and production(hosts_dev, hosts_test and hosts_prd, correspondingly).*
+_Keep different inventories for development, testing and production(hosts_dev, hosts_test and hosts_prd, correspondingly)._
+
+_This playbook first updates and installs necessary packages. To skip this process for the next runs, use **--skip-tags "tag1,tag2"** parameter. To run the specific tag use **--tags "tagname"** syntax_. 
 
 ### To provision the updated cms.conf
 

@@ -1,0 +1,10 @@
+# Run a script on contestant laptops
+
+- hosts: contestants
+  remote_user: ansible
+  gather_facts: no
+  strategy: free
+  #debugger: always
+
+  roles:
+          - contestant
