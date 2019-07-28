@@ -7,10 +7,7 @@ Scripts to automate the CMS related maintenance and manage contestant machines.
 
 ### To clone CMS from IOI2019 repo and install:
 
-- to worker machines:
-<code>ansible-playbook install_cms_worker.yml -i hosts_*stage*</code>
-- to server machines:
-<code>ansible-playbook install_cms_server.yml -i hosts_*stage*</code>
+<code>ansible-playbook install_cms.yml -i hosts_*stage*</code>
 
 _Keep different inventories for development, testing and production(hosts_dev, hosts_test and hosts_prd, correspondingly)._
 
@@ -18,11 +15,7 @@ _This playbook first updates and installs necessary packages. To skip this proce
 
 ### To provision the updated cms.conf
 
-- to worker machines:
-<code>ansible-playbook provision_worker_config.yml -i hosts_*stage*</code>
-
-- to server machines:
-<code>ansible-playbook provision_server_config.yml -i hosts_*stage*</code>
+<code>ansible-playbook provision_cms_config.yml -i hosts_*stage*</code>
 
 ### Ranking server
 

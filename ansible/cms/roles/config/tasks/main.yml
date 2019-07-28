@@ -3,7 +3,7 @@
     become_method: su
     become_user: root
     template:
-            src: cms_{{template}}.j2
+            src: cms_conf.j2
             dest: /usr/local/etc/cms.conf
 
   - name: Restart CMS Services

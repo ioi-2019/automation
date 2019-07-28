@@ -1,12 +1,9 @@
 # Write cms.conf to all CMS servers
 
-- hosts: servers
+- hosts: servers, workers
   remote_user: ansible
   strategy: free
   gather_facts: no
-
-  vars:
-          template: servers
 
   vars_files:
           - /home/ioiauto/ansible-vars/cms
