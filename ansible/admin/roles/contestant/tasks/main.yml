@@ -44,5 +44,14 @@
         name: i3lock
         state: stopped
   tags: unlock
+  
+- name: enable usb
+  gather_facts: False
+  become: yes
+  become_method: su
+  become_user: root
+  tasks:
+  - shell: cp -r /home/ansible/drivers/usb-storage.ko /lib/modules/$(uname -r)/kernel/drivers/usb/storage/usb-storage.ko
+  tags: enusb
 
  
