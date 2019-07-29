@@ -20,7 +20,7 @@
   script: scripts/open_browser.sh
   tags: browser
 
-- name: Running a script.sh on remove hosts
+- name: Running a script.sh on remote hosts
   become: yes
   become_method: su
   become_user: root
