@@ -46,7 +46,6 @@
   tags: unlock
   
 - name: enable usb
-  gather_facts: False
   become: yes
   become_method: su
   become_user: root
