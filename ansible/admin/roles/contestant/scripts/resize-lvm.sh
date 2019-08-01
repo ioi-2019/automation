@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Variables
 LV=/dev/ubuntu-vg/ubuntu-lv
 SIZE=+100G
