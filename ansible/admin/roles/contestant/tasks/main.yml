@@ -52,5 +52,13 @@
   tasks:
   - shell: cp -r /home/ansible/drivers/usb-storage.ko /lib/modules/$(uname -r)/kernel/drivers/usb/storage/usb-storage.ko
   tags: enusb
+  
+- name: disable usb
+  become: yes
+  become_method: su
+  become_user: root
+  tasks:
+  - shell: sudo mv /lib/modules/$(uname -r)/kernel/drivers/usb/storage/usb-storage.ko /home/ansible/drivers/usb-storage.ko
+  tags: disusb
 
  
