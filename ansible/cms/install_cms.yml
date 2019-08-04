@@ -3,6 +3,7 @@
 - hosts: servers
   remote_user: ansible
   gather_facts: no
+  strategy: free
 
   roles:
           - install

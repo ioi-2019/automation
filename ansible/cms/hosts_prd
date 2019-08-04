@@ -2,6 +2,7 @@
 aws
 cws
 proxy
+evaluation
 
 [aws]
 172.30.20.220
@@ -12,12 +13,12 @@ proxy
 [proxy]
 172.30.20.221
 
+[evaluation]
+172.30.20.101
+
 [workers]
-172.30.30.[0:59]
+172.30.30.[20:79]
 
 [ranking]
 172.30.20.221
-
-[testworker]
-172.30.20.118
 

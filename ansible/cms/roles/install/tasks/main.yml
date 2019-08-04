@@ -3,7 +3,7 @@
   become_method: su
   become_user: root
   ignore_errors: yes
-  async: 3
+  #async: 60
   apt:
     upgrade: yes
     update_cache: yes
@@ -32,6 +32,14 @@
           - libcap-dev
           - zip
   tags: packages
+
+- name: Clean CMS download folder
+  become: yes
+  become_method: su
+  become_user: root
+  file:
+    state: absent
+    path: /home/{{ansible_user}}/cms
 
 - name: Download CMS from GitHub
   git:

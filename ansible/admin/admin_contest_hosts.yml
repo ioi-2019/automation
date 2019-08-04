@@ -1,6 +1,6 @@
 # Run a script on contestant laptops
 
-- hosts: contestants
+- hosts: contestants #workers #test
   remote_user: ansible
   gather_facts: no
   strategy: free

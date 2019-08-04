@@ -21,9 +21,9 @@
   tags: browser
 
 - name: Running a script.sh on remote hosts
-  become: yes
-  become_method: su
-  become_user: root
+  #  become: yes
+  #become_method: su
+  #become_user: root
   script: scripts/script.sh
   tags: script
 
@@ -44,14 +44,19 @@
         name: i3lock
         state: stopped
   tags: unlock
-  
-- name: enable usb
-  gather_facts: False
+
+
+- name: Enable USB
   become: yes
   become_method: su
   become_user: root
-  tasks:
-  - shell: cp -r /home/ansible/drivers/usb-storage.ko /lib/modules/$(uname -r)/kernel/drivers/usb/storage/usb-storage.ko
-  tags: enusb
+  shell: cp /home/ansible/drivers/usb-storage.ko /lib/modules/$(uname -r)/kernel/drivers/usb/storage/usb-storage.ko
+  tags: startusb
 
- 
+- name: Disable USB
+  become: yes
+  become_method: su
+  become_user: root
+  shell: rm /lib/modules/$(uname -r)/kernel/drivers/usb/storage/usb-storage.ko
+  tags: stopusb
+
