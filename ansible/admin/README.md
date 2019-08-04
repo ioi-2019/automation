@@ -20,6 +20,16 @@
 
 <code>ansible-playbook admin_contest_hosts --tags "script" -i hosts_stage</code>
 
+* Enable USB module by calling:
+
+<code>ansible-playbook admin_contest_hosts --tags "enusb" -i hosts_stage</code>
+
+* Disable USB module by calling:
+
+<code>ansible-playbook admin_contest_hosts --tags "disusb" -i hosts_stage</code>
+
+
+
 
 _Note: Ensure that in ansible.cfg file "host_key_checking = False" is uncommented. Otherwise, you'll be asked to confirm all contestant hosts' SSH fingerprints._
 
