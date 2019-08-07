@@ -58,3 +58,17 @@
   become_user: root
   shell: sudo mv /lib/modules/$(uname -r)/kernel/drivers/usb/storage/usb-storage.ko /home/ansible/drivers/usb-storage.ko
   tags: disusb
+  
+- name: Disable internal keyboard
+  become: yes
+  become_method: su
+  become_user: root
+  command: xinput float 12
+  tags: diskeyboard
+  
+- name: Create folders per task
+  become: yes
+  become_method: su
+  become_user: root
+  command: mkdir -p /home/contestant/Desktop/Emergency Submissions/{TaskA,TaskB,TaskC}
+  tags: submissions
