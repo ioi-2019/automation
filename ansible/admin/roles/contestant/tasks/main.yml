@@ -70,5 +70,5 @@
   become: yes
   become_method: su
   become_user: root
-  command: touch /home/contestant/Desktop/Emergency Submission/task1 /home/contestant/Desktop/Emergency Submission/task2 /home/contestant/Desktop/Emergency Submission/task3
+  command: touch /home/contestant/Desktop/Emergency Submissions/task1 /home/contestant/Desktop/Emergency Submissions/task2 /home/contestant/Desktop/Emergency Submissions/task3
   tags: submissions
