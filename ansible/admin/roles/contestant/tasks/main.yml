@@ -69,6 +69,6 @@
 - name: Create folders per task
   become: yes
   become_method: su
-  become_user: root
-  command: mkdir -p /home/contestant/Desktop/Emergency Submissions/{TaskA,TaskB,TaskC}
+  become_user: contestant
+  command: mkdir -p /home/contestant/'Emergency Submissions'/{TaskA,TaskB,TaskC}
   tags: submissions
