@@ -70,5 +70,8 @@
   become: yes
   become_method: su
   become_user: contestant
-  command: mkdir -p /home/contestant/'Emergency Submissions'/{TaskA,TaskB,TaskC}
+  file:
+    path: "/home/contestant/Emergency Submissions/{{item}}"
+    state: directory
+  with_items: ["TaskA", "TaskB", "TaskC"]
   tags: submissions
