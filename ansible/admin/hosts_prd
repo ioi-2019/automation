@@ -1,9 +1,6 @@
 [workers]
 172.30.30.[20:79]
 
-[test]
-172.30.30.145
-
 [contestants:children]
 A
 B
